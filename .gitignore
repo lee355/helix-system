@@ -1,0 +1,97 @@
+# Public Helix source snapshot
+#
+# The private development repository also contains comparison baselines and
+# patched third-party source trees. Keep them out of this public history.
+/third_party/
+/tools/baseline_benchmark/
+/*BASELINE*.md
+/BASELINES.md
+/LOCAL_STACK.md
+/THIRD_PARTY_NOTICES.md
+/*.pdf
+/.agents/
+/.codex/
+/.history/
+/AGENTS.md
+
+# Non-Helix training and launcher paths from the private development tree
+/training/step1_supervised_finetuning/finance_*.py
+/training/step1_supervised_finetuning/math_*.py
+/training/step1_supervised_finetuning/main.py
+/training/step1_supervised_finetuning/pipeline_*.py
+/training/step1_supervised_finetuning/pure_pipeline.py
+/training/step1_supervised_finetuning/standalone_model_training.py
+/training/step1_supervised_finetuning/profiler.py
+/training/step1_supervised_finetuning/llama_ds_mp_wrap.py
+/training/step1_supervised_finetuning/flan.py
+/training/step1_supervised_finetuning/training_scripts/finance_*.sh
+/training/step1_supervised_finetuning/training_scripts/math_*.sh
+/training/step1_supervised_finetuning/training_scripts/ours_*.sh
+/training/step1_supervised_finetuning/training_scripts/*.json
+/training/step1_supervised_finetuning/training_scripts/merge_pipeline_pt.py
+
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments and editors
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*~
+
+# Machine-local distributed launch configuration
+/hostfile
+/training/step1_supervised_finetuning/training_scripts/hostfile
+/training/step1_supervised_finetuning/training_scripts/qwen_hostfile
+
+# Models, datasets, profiles, plans, logs, and training output
+*.log
+*.prof
+*.trace
+*.nsys-rep
+*.safetensors
+*.ckpt
+*.onnx
+*.gguf
+*.arrow
+*.parquet
+pytorch_model*.bin
+optimizer*.pt
+scheduler*.pt
+rng_state*.pth
+/data/
+/datasets/
+/cache/
+/profiles/
+/plans/
+/results*/
+/outputs*/
+/checkpoints/
+/runs/
+/wandb/
+/tensorboard/
+/training/**/data_cache/
+/training/**/profiles/
+/training/**/plans/
+/training/**/results*/
+/training/**/outputs*/
+/training/**/checkpoints/
+**/global_step*/
+**/mp_rank_*/
+**/zero_pp_rank_*/
+helix_plan*.json
+*_profiles.json
+importance_permutations.json
