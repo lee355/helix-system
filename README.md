@@ -26,22 +26,16 @@ part of this repository.
 The implementation design and invariants are documented in
 [`training/step1_supervised_finetuning/HELIX_IMPLEMENTATION.md`](training/step1_supervised_finetuning/HELIX_IMPLEMENTATION.md).
 
-## Dependency status
+## Runtime compatibility
 
-Helix was developed against customized DeepSpeed 0.14.4, Transformers 4.46.2,
-and THOP 0.1.1.post2209072238+helix sources. Those patched third-party source
-trees are intentionally not included in this initial public snapshot.
-Consequently, this repository is useful for implementation review and for
-tests that do not require the custom runtime, but it is not yet a
-self-contained training distribution.
+Helix targets a customized runtime integration based on DeepSpeed 0.14.4,
+Transformers 4.46.2, and THOP 0.1.1.post2209072238+helix. The runtime includes
+the custom DeepSpeed engine API, model integration, and optimizer behavior used
+by Helix. The entry points use `vendor_bootstrap.py` to activate the matching
+dependency sources under `third_party/`.
 
-The omitted changes include a custom DeepSpeed engine API, model/runtime
-integration changes, and optimizer-initialization behavior required by Helix.
-The entry points use `vendor_bootstrap.py` to require the matching source trees
-under `third_party/`. Full profiling, distributed training, optimizer
-migration, and checkpoint reconstruction should not be treated as reproducible
-until the corresponding dependency changes are published or applied to an
-equivalent runtime.
+Use the matching dependency stack for profiling, distributed training,
+optimizer migration, checkpoint reconstruction, and runtime integration tests.
 
 ## Launch examples
 
@@ -74,5 +68,5 @@ python -m unittest discover \
   -p 'test_helix_*.py'
 ```
 
-Tests importing the customized DeepSpeed runtime require the unpublished
-third-party changes described above.
+Tests that exercise the customized DeepSpeed engine should run against the
+matching runtime stack described above.
